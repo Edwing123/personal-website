@@ -1,13 +1,71 @@
 ---
-import BaseLayout from "../layouts/Base.astro";
+import BaseLayout from '../layouts/Base.astro'
 
 const props = {
-	meta: {
-		keywords: "Website, Personal, Blog, Portfolil",
-		description: "The personal website of Edwin Garcia"
-	},
-	title: "Edwing123 | Home"
+    meta: {
+        keywords: 'Website, Personal, Blog, Portfolil',
+        description: 'The personal website of Edwin Garcia'
+    },
+    title: 'Edwing123 | Home'
 }
 ---
+
+<script>
+    const verbs = ['do', 'think', 'create', 'code']
+    const getRandomVerbIndex = () => Math.floor(Math.random() * verbs.length)
+    const UPDATE_INTERVAL = 4000
+    let updateIntervalId: number
+
+    function startVerbs() {
+        const $verb = document.querySelector('#verb')!
+
+        updateIntervalId = setInterval(() => {
+            $verb.textContent = verbs[getRandomVerbIndex()]
+        }, UPDATE_INTERVAL)
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+        startVerbs()
+    })
+
+    window.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') {
+            startVerbs()
+            return
+        }
+
+        clearInterval(updateIntervalId)
+    })
+</script>
+
 <BaseLayout {...props}>
+    <h1>Hey there! I am Edwin Garcia</h1>
+    <p class="introduction">
+        I
+        <span class="brace" aria-hidden="true">{'{'}</span>
+        <span id="verb" class="verb">do</span>
+        <span class="brace" aria-hidden="true">{'}'}</span>
+        things.
+    </p>
 </BaseLayout>
+
+<style>
+    h1 {
+        font-size: 8rem;
+        color: var(--color-black);
+    }
+
+    p {
+        font-size: 5rem;
+        color: var(--color-black);
+        font-weight: bold;
+    }
+
+    .verb {
+        color: var(--color-red);
+    }
+
+    .brace {
+        color: var(--color-gray-light);
+    }
+</style>

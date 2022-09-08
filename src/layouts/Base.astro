@@ -16,11 +16,14 @@ const { description, keywords } = meta
 ---
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <!-- General metadata -->
         <meta charset="utf8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+        />
         <link rel="shortcut icon" href="/favicon.svg" />
 
         <!-- Page specific metadata -->
@@ -31,7 +34,10 @@ const { description, keywords } = meta
         <!-- Resources -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;700&display=swap" rel="stylesheet" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
     </head>
     <body>
         <div class="container">
@@ -41,50 +47,57 @@ const { description, keywords } = meta
                 <slot />
             </main>
         </div>
+        <style is:global>
+            *,
+            *::before,
+            *::after {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            :root {
+                --root-font-family: 'Titillium Web', sans-serif;
+                --root-font-size: 62.5%;
+
+                /* Colors */
+                --body-bg-color: #fafaf6;
+                --color-black: #0b032d;
+                --color-blue: #482ff7;
+                --color-red: #ff304f;
+                --color-gray-light: #c8cbd4;
+                --color-green: #239460;
+                --color-violet-dark: #574b90;
+            }
+
+            :root {
+                font-family: var(--root-font-family);
+                font-size: var(--root-font-size);
+                line-height: 1.5;
+            }
+
+            body {
+                background-color: var(--body-bg-color);
+            }
+
+            a,
+            input,
+            textarea,
+            button {
+                font-size: inherit;
+                font-family: inherit;
+                color: inherit;
+                text-decoration: none;
+            }
+
+            .container {
+                width: 96%;
+                margin: 0 auto;
+            }
+
+            main {
+                margin-top: 4.5rem;
+            }
+        </style>
     </body>
 </html>
-
-<!-- Global styles -->
-<style is:global>
-    *,
-    *::before,
-    *::after {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    :root {
-        --root-font-family: "Titillium Web", sans-serif;
-        --root-font-size: 62.5%;
-
-        /* Colors */
-        --body-bg-color: #FAFAF6;
-        --color-black: #0B032D;
-        --color-blue: #482FF7;
-        --color-green: #2CB978;
-        --color-violet-dark: #574B90;
-    }
-
-    :root {
-        font-family: var(--root-font-family);
-        font-size: var(--root-font-size);
-        line-height: 1.5;
-    }
-
-    body {
-        background-color: var(--body-bg-color);
-    }
-
-    a, input, textarea, button {
-        font-size: inherit;
-        font-family: inherit;
-        color: inherit;
-        text-decoration: none;
-    }
-
-    .container {
-        width: 96%;
-        margin: 0 auto;
-    }
-</style>
