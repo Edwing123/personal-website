@@ -1,0 +1,90 @@
+---
+import Header from '../components/Header.astro'
+
+type Metadata = {
+    description: string
+    keywords: string
+}
+
+export type Props = {
+    title: string
+    meta: Metadata
+}
+
+const { title, meta } = Astro.props as Props
+const { description, keywords } = meta
+---
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- General metadata -->
+        <meta charset="utf8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+        <link rel="shortcut icon" href="/favicon.svg" />
+
+        <!-- Page specific metadata -->
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta name="keywords" content={keywords} />
+
+        <!-- Resources -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;700&display=swap" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="container">
+            <Header />
+
+            <main class="main">
+                <slot />
+            </main>
+        </div>
+    </body>
+</html>
+
+<!-- Global styles -->
+<style is:global>
+    *,
+    *::before,
+    *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    :root {
+        --root-font-family: "Titillium Web", sans-serif;
+        --root-font-size: 62.5%;
+
+        /* Colors */
+        --body-bg-color: #FAFAF6;
+        --color-black: #0B032D;
+        --color-blue: #482FF7;
+        --color-green: #2CB978;
+        --color-violet-dark: #574B90;
+    }
+
+    :root {
+        font-family: var(--root-font-family);
+        font-size: var(--root-font-size);
+        line-height: 1.5;
+    }
+
+    body {
+        background-color: var(--body-bg-color);
+    }
+
+    a, input, textarea, button {
+        font-size: inherit;
+        font-family: inherit;
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .container {
+        width: 96%;
+        margin: 0 auto;
+    }
+</style>
