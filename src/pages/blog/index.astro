@@ -1,0 +1,22 @@
+---
+import BaseLayout from '@layouts/Base.astro'
+
+const props = {
+    meta: {
+        description: 'Blog for sharing thoughts, ideas and more',
+        keywords: 'Blog, Technology, Web, Development, Personal'
+    },
+    title: 'Edwing123 | Blog'
+}
+---
+
+<BaseLayout {...props}>
+    <h1>Sharing thoughts, ideas and more!</h1>
+</BaseLayout>
+
+<style>
+    h1 {
+        font-size: var(--font-scale-3);
+        color: var(--color-black);
+    }
+</style>
