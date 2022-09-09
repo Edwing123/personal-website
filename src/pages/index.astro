@@ -11,14 +11,14 @@ const props = {
 ---
 
 <script>
-    import { WritingAnimation } from '../js/writing-animation'
+    import { TypingAnimation } from '../js/typing-animation'
 
     window.addEventListener('DOMContentLoaded', () => {
         const $el: HTMLElement = document.querySelector('#word')!
-        const animation = new WritingAnimation({
+        const animation = new TypingAnimation({
             $el,
             initial: 'do',
-            words: ['do', 'code', 'think', 'try', 'read']
+            words: ['do', 'code', 'think', 'try', 'read', 'break']
         })
 
         animation.start()

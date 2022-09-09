@@ -1,5 +1,5 @@
-class WritingCursor extends HTMLElement {
-    static tagName = 'writing-cursor'
+class TypingCursor extends HTMLElement {
+    static tagName = 'typing-cursor'
     static attributes = ['state']
 
     #root: ShadowRoot
@@ -57,7 +57,7 @@ class WritingCursor extends HTMLElement {
     }
 }
 
-customElements.define(WritingCursor.tagName, WritingCursor)
+customElements.define(TypingCursor.tagName, TypingCursor)
 
 type Options = {
     $el: HTMLElement
@@ -68,7 +68,7 @@ type Options = {
 
 type State = 'writing' | 'erasing'
 
-class WritingAnimation {
+class TypingAnimation {
     #$el: HTMLElement
     #$cursor: HTMLElement
     #words: string[] = []
@@ -83,7 +83,7 @@ class WritingAnimation {
         this.#$el = options.$el
         this.#words = options.words
         this.#duration = options.duration ?? 200
-        this.#$cursor = document.createElement('writing-cursor')
+        this.#$cursor = document.createElement(TypingCursor.tagName)
 
         this.#$el.insertAdjacentElement('afterend', this.#$cursor)
         this.#$cursor.dataset.state = 'stopped'
@@ -159,4 +159,4 @@ class WritingAnimation {
     }
 }
 
-export { WritingAnimation }
+export { TypingAnimation }
