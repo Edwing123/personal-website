@@ -11,30 +11,17 @@ const props = {
 ---
 
 <script>
-    const verbs = ['do', 'think', 'create', 'code']
-    const getRandomVerbIndex = () => Math.floor(Math.random() * verbs.length)
-    const UPDATE_INTERVAL = 4000
-    let updateIntervalId: number
-
-    function startVerbs() {
-        const $verb = document.querySelector('#verb')!
-
-        updateIntervalId = setInterval(() => {
-            $verb.textContent = verbs[getRandomVerbIndex()]
-        }, UPDATE_INTERVAL)
-    }
+    import { WritingAnimation } from '../js/writing-animation'
 
     window.addEventListener('DOMContentLoaded', () => {
-        startVerbs()
-    })
+        const $el: HTMLElement = document.querySelector('#word')!
+        const animation = new WritingAnimation({
+            $el,
+            initial: 'do',
+            words: ['do', 'code', 'think', 'try', 'read']
+        })
 
-    window.addEventListener('visibilitychange', () => {
-        if (document.visibilityState === 'visible') {
-            startVerbs()
-            return
-        }
-
-        clearInterval(updateIntervalId)
+        animation.start()
     })
 </script>
 
@@ -42,9 +29,7 @@ const props = {
     <h1>Hey there! I am Edwin Garcia</h1>
     <p class="introduction">
         I
-        <span class="brace" aria-hidden="true">{'{'}</span>
-        <span id="verb" class="verb">do</span>
-        <span class="brace" aria-hidden="true">{'}'}</span>
+        <span id="word" class="word">do</span>
         things.
     </p>
 </BaseLayout>
@@ -61,11 +46,7 @@ const props = {
         font-weight: bold;
     }
 
-    .verb {
+    .word {
         color: var(--color-red);
-    }
-
-    .brace {
-        color: var(--color-gray-light);
     }
 </style>
