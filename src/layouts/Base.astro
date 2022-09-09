@@ -35,7 +35,7 @@ const { description, keywords } = meta
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&display=swap"
             rel="stylesheet"
         />
     </head>
@@ -62,17 +62,19 @@ const { description, keywords } = meta
 
                 /* Colors */
                 --body-bg-color: #fafaf6;
+                --color-white-2: #f0f0f0;
                 --color-black: #0b032d;
                 --color-blue: #482ff7;
                 --color-red: #ff304f;
                 --color-gray-light: #c8cbd4;
                 --color-green: #239460;
                 --color-violet-dark: #574b90;
+                --color-violet-dark-2: #231c42;
 
                 /* Font sizes */
                 --font-scale-1: 2.5rem;
                 --font-scale-2: 3.8rem;
-                --font-scale-3: 5rem;
+                --font-scale-3: 6rem;
                 --font-scale-4: 8rem;
             }
 
@@ -103,6 +105,10 @@ const { description, keywords } = meta
 
             main {
                 margin-top: 4.5rem;
+            }
+
+            *::selection {
+                background-color: #dad5fd;
             }
         </style>
     </body>
