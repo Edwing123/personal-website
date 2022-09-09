@@ -1,0 +1,39 @@
+---
+export type Props = {
+    title: string
+    url: string
+    createdAt: string
+}
+
+const { title, url, createdAt } = Astro.props
+---
+
+<article data-is="post">
+    <h2>
+        <a href={url}>{title}</a>
+    </h2>
+
+    <p><time>{createdAt}</time></p>
+</article>
+
+<style>
+    article {
+        padding: 2rem;
+
+        border-radius: 3px;
+        background-color: var(--color-white-2);
+    }
+
+    h2 {
+        margin-bottom: 1rem;
+
+        color: var(--color-violet-dark-2);
+        font-size: var(--font-scale-2);
+    }
+
+    p {
+        color: var(--color-black);
+        font-size: var(--font-scale-1);
+        font-weight: 600;
+    }
+</style>

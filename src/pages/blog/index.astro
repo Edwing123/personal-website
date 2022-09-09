@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '@layouts/Base.astro'
+import PostCard from '@components/PostCard.astro'
 
 const props = {
     meta: {
@@ -12,11 +13,37 @@ const props = {
 
 <BaseLayout {...props}>
     <h1>Sharing thoughts, ideas and more</h1>
+
+    <section class="posts">
+        <PostCard
+            title="Learning a programming language again..."
+            createdAt="September 7, 2022"
+            url="/"
+        />
+
+        <PostCard
+            title="Building relationships is important"
+            createdAt="September 3, 2022"
+            url="/"
+        />
+
+        <PostCard
+            title="What does the university mean to me?"
+            createdAt="August 29, 2022"
+            url="/"
+        />
+    </section>
 </BaseLayout>
 
 <style>
     h1 {
+        margin-bottom: 4.5rem;
+
         font-size: var(--font-scale-3);
         color: var(--color-black);
+    }
+
+    :global([data-is='post']) {
+        margin-bottom: 2rem;
     }
 </style>
