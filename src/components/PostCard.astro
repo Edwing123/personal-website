@@ -8,32 +8,33 @@ export type Props = {
 const { title, url, createdAt } = Astro.props
 ---
 
-<article data-is="post">
-    <h2>
-        <a href={url}>{title}</a>
-    </h2>
-
-    <p><time>{createdAt}</time></p>
-</article>
+<a href={url}>
+    <article data-is="post">
+        <h2>{title}</h2>
+        <p><time>{createdAt}</time></p>
+    </article>
+</a>
 
 <style>
     article {
+        --card-bg-color: #e5ecf4;
+
         padding: 2rem;
 
         border-radius: 3px;
-        background-color: var(--color-white-2);
+        background-color: var(--card-bg-color);
     }
 
     h2 {
-        margin-bottom: 1rem;
+        margin-bottom: 0.8rem;
 
-        color: var(--color-violet-dark-2);
-        font-size: var(--font-scale-2);
+        color: var(--color-black-1);
+        font-size: var(--font-size-2);
     }
 
     p {
         color: var(--color-black-2);
-        font-size: var(--font-scale-1);
+        font-size: var(--font-size-1);
         font-weight: 600;
     }
 </style>

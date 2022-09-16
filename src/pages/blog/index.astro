@@ -4,7 +4,7 @@ import PostCard from '@components/PostCard.astro'
 
 const props = {
     meta: {
-        description: 'Blog for sharing thoughts, ideas and more',
+        description: 'Edwin Garcia personal blog',
         keywords: 'Blog, Technology, Web, Development, Personal'
     },
     title: 'Edwing123 | Blog'
@@ -12,11 +12,11 @@ const props = {
 ---
 
 <BaseLayout {...props}>
-    <h1>Sharing thoughts, ideas and more</h1>
+    <h1>Posts</h1>
 
     <section class="posts">
         <PostCard
-            title="Learning a programming language again..."
+            title="Learning a programming language again"
             createdAt="September 7, 2022"
             url="/"
         />
@@ -39,8 +39,8 @@ const props = {
     h1 {
         margin-bottom: 2rem;
 
-        font-size: var(--font-scale-3);
-        color: var(--color-black);
+        font-size: var(--font-size-3);
+        color: var(--color-black-1);
     }
 
     :global([data-is='post']) {

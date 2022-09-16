@@ -10,43 +10,22 @@ const props = {
 }
 ---
 
-<script>
-    import { TypingAnimation } from '../js/typing-animation'
-
-    window.addEventListener('DOMContentLoaded', () => {
-        const $el: HTMLElement = document.querySelector('#word')!
-        const animation = new TypingAnimation({
-            $el,
-            initial: 'do',
-            words: ['do', 'code', 'think', 'try', 'read', 'break']
-        })
-
-        animation.start()
-    })
-</script>
-
 <BaseLayout {...props}>
-    <h1>Hey there! I am Edwin Garcia</h1>
-    <p class="introduction">
-        I
-        <span id="word" class="word">do</span>
-        things.
-    </p>
+    <h1>Hey there, I am Edwin Garcia</h1>
+    <p class="description">I am a self-taugth web developer from Nicaragua.</p>
 </BaseLayout>
 
 <style>
     h1 {
-        font-size: var(--font-scale-4);
-        color: var(--color-black);
+        margin-bottom: 1rem;
+
+        font-size: var(--font-size-3);
+        color: var(--color-black-1);
     }
 
     p {
-        font-size: var(--font-scale-3);
-        color: var(--color-black);
-        font-weight: bold;
-    }
-
-    .word {
-        color: var(--color-red);
+        font-size: var(--font-size-2);
+        color: var(--color-black-1);
+        font-weight: 600;
     }
 </style>
