@@ -1,0 +1,102 @@
+---
+import BaseLayout from './Base.astro'
+import type { PostProps } from '../types'
+
+export type Props = PostProps
+
+const { frontmatter } = Astro.props as Props
+const { title, description, tags, coverImage } = frontmatter
+---
+
+<BaseLayout title={title} meta={{ description, keywords: tags.join(', ') }}>
+    <section class="cover">
+        <img src={coverImage.url} aria-hidden="true" alt="" />
+        <p>
+            <a href={coverImage.original} target="_blank" rel="norel noreferrer"
+                >Photo by {coverImage.creator} on Unsplash</a
+            >
+        </p>
+    </section>
+
+    <section class="content">
+        <slot />
+    </section>
+</BaseLayout>
+
+<style is:global>
+    .cover {
+        position: relative;
+    }
+
+    .cover img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        vertical-align: top;
+    }
+
+    .cover p {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        padding: 1.4rem;
+
+        font-weight: bold;
+        border-top-right-radius: 3px;
+        font-size: 1.5rem;
+        color: white;
+        background-color: hsla(0, 0%, 0%, 0.6);
+    }
+
+    :root {
+        --heading-1: 4.5rem;
+        --heading-2: 3rem;
+        --text: 2rem;
+
+        --elements-spacing: 2.5rem;
+
+        --heading-color: var(--color-black-1);
+        --text-color: var(--color-black-2);
+    }
+
+    .content {
+        max-width: 80rem;
+        margin: 0 auto;
+    }
+
+    .content :not(h1, li) {
+        margin-bottom: var(--elements-spacing);
+    }
+
+    .content :not(h1, h2, h3) {
+        color: var(--text-color);
+        font-size: var(--text);
+    }
+
+    h1,
+    h2,
+    h3 {
+        color: var(--heading-color);
+    }
+
+    h1 {
+        margin: 4rem 0;
+        font-size: var(--heading-1);
+    }
+
+    h2 {
+        font-size: var(--heading-2);
+    }
+
+    ol,
+    ul {
+        padding: 0;
+        margin: 0;
+        list-style-position: inside;
+    }
+
+    pre {
+        padding: 6px;
+        border-radius: 3px;
+    }
+</style>

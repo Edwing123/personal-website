@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '@layouts/Base.astro'
 import PostCard from '@components/PostCard.astro'
+import type { PostFrontmatter } from '../../types'
 
 const props = {
     meta: {
@@ -9,29 +10,23 @@ const props = {
     },
     title: 'Edwing123 | Blog'
 }
+
+const posts = await Astro.glob<PostFrontmatter>('./posts/*.md')
 ---
 
 <BaseLayout {...props}>
     <h1>Posts</h1>
 
     <section class="posts">
-        <PostCard
-            title="Learning a programming language again"
-            createdAt="September 7, 2022"
-            url="/"
-        />
-
-        <PostCard
-            title="Building relationships is important"
-            createdAt="September 3, 2022"
-            url="/"
-        />
-
-        <PostCard
-            title="What does the university mean to me?"
-            createdAt="August 29, 2022"
-            url="/"
-        />
+        {
+            posts.map((post) => (
+                <PostCard
+                    title={post.frontmatter.title}
+                    createdAt={post.frontmatter.date}
+                    url={`/blog/${post.frontmatter.slug}`}
+                />
+            ))
+        }
     </section>
 </BaseLayout>
 
