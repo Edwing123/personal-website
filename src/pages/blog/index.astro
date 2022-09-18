@@ -11,7 +11,7 @@ const props = {
     title: 'Edwing123 | Blog'
 }
 
-const posts = await Astro.glob<PostFrontmatter>('./posts/*.md')
+const posts = await Astro.glob<PostFrontmatter>('./posts/*.mdx')
 ---
 
 <BaseLayout {...props}>
@@ -23,7 +23,7 @@ const posts = await Astro.glob<PostFrontmatter>('./posts/*.md')
                 <PostCard
                     title={post.frontmatter.title}
                     createdAt={post.frontmatter.date}
-                    url={`/blog/${post.frontmatter.slug}`}
+                    url={post.url!}
                 />
             ))
         }

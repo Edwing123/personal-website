@@ -1,5 +1,4 @@
 ---
-slug: this-is-a-test
 title: This is a test
 author: Edwin Garcia
 date: September 15, 2022
@@ -9,6 +8,7 @@ coverImage:
     url: /images/posts/this-is-a-test/cover.jpg
     original: https://unsplash.com/photos/gEN5Btvf2Eg
     creator: Michael Dziedzic
+layout: '@layouts/Post.astro'
 ---
 
 # This is a test
@@ -28,6 +28,27 @@ import "fmt"
 
 func main() {
     fmt.Println("Hello World")
+}
+```
+
+## This is some Zig code
+
+```c
+const std = @import("std");
+const heap = std.heap;
+
+pub fn main() !void {
+    var gpa = heap.GeneralPurposeAllocator(.{}){};
+    defer _ = gpa.deinit();
+
+    const allocator = gpa.allocator();
+
+    var age = try allocator.create(u8);
+    age.* = 21;
+
+    std.debug.print("Hello, I am {d} years old\n", .{ age.* });
+
+    allocator.destroy(age);
 }
 ```
 
