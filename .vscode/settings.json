@@ -3,5 +3,9 @@
 
     "[astro]": {
         "editor.defaultFormatter": "astro-build.astro-vscode",
+    },
+
+    "files.associations": {
+        "*.mdx": "markdown"
     }
 }
