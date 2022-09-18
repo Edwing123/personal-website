@@ -73,29 +73,26 @@ const { title, description, tags, coverImage } = frontmatter
         font-size: var(--text);
     }
 
-    h1,
-    h2,
-    h3 {
+    .content :where(h1, h2, h3) {
         color: var(--heading-color);
     }
 
-    h1 {
+    .content h1 {
         margin: 4rem 0;
         font-size: var(--heading-1);
     }
 
-    h2 {
+    .content h2 {
         font-size: var(--heading-2);
     }
 
-    ol,
-    ul {
+    .content :where(ol, ul) {
         padding: 0;
         margin: 0;
         list-style-position: inside;
     }
 
-    pre {
+    .content pre {
         padding: 6px;
         border-radius: 3px;
     }
