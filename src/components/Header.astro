@@ -3,12 +3,26 @@
 
 <header>
     <a href="/" class="page-logo">Edwing123</a>
-    <nav>
+    <button class="menu-button" id="menu-button"> Menu</button>
+    <nav id="menu">
         <a href="/" class="first">Home</a>
         <a href="/blog/" class="second">Blog</a>
         <a href="/projects/" class="third">Projects</a>
     </nav>
 </header>
+
+<script>
+    const $menuBtn = document.querySelector<HTMLButtonElement>('#menu-button')
+    const $menu = document.querySelector<HTMLElement>('#menu')
+
+    $menuBtn?.addEventListener('click', () => {
+        if ($menu == undefined) {
+            return
+        }
+
+        $menu.classList.toggle('show')
+    })
+</script>
 
 <style>
     header {
@@ -26,7 +40,7 @@
 
     nav {
         display: flex;
-        gap: 3rem;
+        gap: 2.5rem;
 
         text-decoration: underline;
     }
@@ -41,5 +55,52 @@
 
     .third {
         color: #02407e;
+    }
+
+    .menu-button {
+        display: none;
+        padding: 0.4rem 2rem;
+
+        border-radius: 4px;
+        color: var(--color-black-1);
+        font-size: var(--font-size-1);
+        font-weight: bold;
+        border: none;
+        user-select: none;
+    }
+
+    @media screen and (max-width: 500px) {
+        header {
+            position: relative;
+            justify-content: space-between;
+        }
+
+        nav {
+            display: none;
+            width: 100%;
+            padding: 2rem;
+
+            position: absolute;
+            z-index: 1;
+            right: 0;
+            bottom: -10px;
+            transform: translateY(100%);
+
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+
+            border-radius: 4px;
+            background-color: var(--color-white-1);
+            border: 1px solid hsl(0, 0%, 80%);
+        }
+
+        .menu-button {
+            display: block;
+        }
+    }
+
+    nav.show {
+        display: flex;
     }
 </style>
