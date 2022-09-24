@@ -93,7 +93,7 @@ const { description, keywords } = meta
             }
 
             .container {
-                width: 96%;
+                width: 90%;
                 margin: 0 auto;
             }
 
@@ -103,6 +103,12 @@ const { description, keywords } = meta
 
             *::selection {
                 background-color: #dad5fd;
+            }
+
+            @media screen and (max-width: 730px) {
+                :root {
+                    --root-font-size: 55%;
+                }
             }
         </style>
     </body>
